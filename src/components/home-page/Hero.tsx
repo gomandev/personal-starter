@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { BCMSImage } from 'gatsby-source-bcms/components';
 import { HomeHeroGroup } from '../../../bcms/types';
 import ContentManager from '../../components/ContentManager';
@@ -21,7 +21,7 @@ const HomepageHero: React.FC<HomepageHeroProps> = ({ data }) => {
                 item={data.description}
                 className="text-xs leading-[1.4] tracking-[-0.41px] text-appGray-400 pr-[70px] mb-8 lg:text-base lg:leading-[1.4] lg:mb-8"
               />
-              <Link to='/'>
+              <Link to="/">
                 <a className="flex px-[18px] py-[14px] rounded-[32px] border border-appGray-200 text-xs leading-none tracking-[-0.41px] font-medium text-appGray-500 uppercase mb-14 lg:px-6 lg:py-4 lg:text-sm lg:leading-none">
                   Contact me
                 </a>

@@ -1,7 +1,9 @@
-/public
+/.nuxt
+/.output
+/assets
 /bcms
-/parser-dist
-/.cache
-/docker-cache
-gatsby-config.js
-gatsby-node.js
+/bcms-components
+/dist
+/logs
+/node_modules
+/public

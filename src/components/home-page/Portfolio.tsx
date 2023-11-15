@@ -65,29 +65,34 @@ const HomepagePortfolio: React.FC<HomepagePortfolioProps> = ({ data }) => {
                       className="w-full rounded-3xl overflow-hidden"
                     >
                       {item.gallery &&
-                        item.gallery.map((galleryItem: BCMSPropMediaDataParsed, galleryIndex: React.Key | null | undefined) => (
-                          <SwiperSlide key={galleryIndex} className="w-full">
-                            <BCMSImage
-                              media={galleryItem}
-                              options={{
-                                sizes: {
-                                  exec: [
-                                    {
-                                      width: 840,
-                                      height: 580,
-                                    },
-                                  ],
-                                },
-                              }}
-                              className={classNames(
-                                'w-full h-full aspect-[1.45] cover rounded-3xl overflow-hidden',
-                                index % 2 === 2 || index % 3 === 0
-                                  ? 'xl:aspect-[1.45]'
-                                  : 'xl:aspect-[1.84]',
-                              )}
-                            />
-                          </SwiperSlide>
-                        ))}
+                        item.gallery.map(
+                          (
+                            galleryItem: BCMSPropMediaDataParsed,
+                            galleryIndex: React.Key | null | undefined,
+                          ) => (
+                            <SwiperSlide key={galleryIndex} className="w-full">
+                              <BCMSImage
+                                media={galleryItem}
+                                options={{
+                                  sizes: {
+                                    exec: [
+                                      {
+                                        width: 840,
+                                        height: 580,
+                                      },
+                                    ],
+                                  },
+                                }}
+                                className={classNames(
+                                  'w-full h-full aspect-[1.45] cover rounded-3xl overflow-hidden',
+                                  index % 2 === 2 || index % 3 === 0
+                                    ? 'xl:aspect-[1.45]'
+                                    : 'xl:aspect-[1.84]',
+                                )}
+                              />
+                            </SwiperSlide>
+                          ),
+                        )}
                     </Swiper>
                     <div
                       className="absolute z-10 top-0 left-0 w-full h-full rounded-3xl flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-100"

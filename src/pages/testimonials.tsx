@@ -2,8 +2,6 @@ import {
   FooterEntryMeta,
   HeaderEntryMeta,
   TestimonialItemEntry,
-  TestimonialItemEntryMeta,
-  TestimonialsPageEntry,
   TestimonialsPageEntryMeta,
 } from '../../bcms/types';
 
@@ -12,7 +10,10 @@ import { PageWrapper } from '../components/PageWrapper';
 import AnimatedTitle from '../components/AnimatedTitle';
 import { BCMSImage } from 'gatsby-source-bcms/components';
 import ContentManager from '../components/ContentManager';
-import { BCMSPropMediaDataParsed, BCMSPropRichTextDataParsed } from '@becomes/cms-client/types';
+import {
+  BCMSPropMediaDataParsed,
+  BCMSPropRichTextDataParsed,
+} from '@becomes/cms-client/types';
 import { graphql } from 'gatsby';
 
 const TestimonialsPage: React.FC<{
@@ -45,16 +46,20 @@ const TestimonialsPage: React.FC<{
       nodes: Array<{
         bcms: TestimonialItemEntry;
       }>;
-    }
-   
-  }
+    };
+  };
 }> = ({ data }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
 
   const activeItem = data.testimonialItem?.nodes[activeItemIndex];
-  
+
   return (
-    <PageWrapper header={data.header} footer={data.footer} page={data.page} location="/testimonials">
+    <PageWrapper
+      header={data.header}
+      footer={data.footer}
+      page={data.page}
+      location="/testimonials"
+    >
       <div className="pt-8 pb-10 overflow-hidden md:pb-20 lg:pt-[72px] lg:pb-[120px]">
         <div className="container">
           <AnimatedTitle
@@ -70,7 +75,9 @@ const TestimonialsPage: React.FC<{
                 onClick={() => setActiveItemIndex(index)}
               >
                 <BCMSImage
-                  media={item.bcms.meta.en?.author.avatar as BCMSPropMediaDataParsed}
+                  media={
+                    item.bcms.meta.en?.author.avatar as BCMSPropMediaDataParsed
+                  }
                   options={{
                     sizes: {
                       exec: [
@@ -115,7 +122,6 @@ const TestimonialsPage: React.FC<{
     </PageWrapper>
   );
 };
-
 
 export const query = graphql`
   query {

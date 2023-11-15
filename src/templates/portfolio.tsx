@@ -1,13 +1,19 @@
-import React from 'react'
-import {graphql} from 'gatsby'
-import { HeaderEntryMeta, FooterEntryMeta, PortfolioItemEntryMeta } from '../../bcms/types';
+import React from 'react';
+import { graphql } from 'gatsby';
+import {
+  HeaderEntryMeta,
+  FooterEntryMeta,
+  PortfolioItemEntryMeta,
+} from '../../bcms/types';
 import { PageWrapper } from '../components/PageWrapper';
 import ContentManager from '../components/ContentManager';
 import { BCMSImage } from 'gatsby-source-bcms/components';
-import { BCMSPropMediaDataParsed, BCMSPropRichTextDataParsed } from '@becomes/cms-client/types';
+import {
+  BCMSPropMediaDataParsed,
+  BCMSPropRichTextDataParsed,
+} from '@becomes/cms-client/types';
 
-
-const PortfolioItemPage: React. FC<{
+const PortfolioItemPage: React.FC<{
   data: {
     header: {
       bcms: {
@@ -36,7 +42,12 @@ const PortfolioItemPage: React. FC<{
   };
 }> = ({ data }) => {
   return (
-    <PageWrapper header={data.header} footer={data.footer} page={data.page} location={`/portfolio/${data.page.bcms.meta.en.slug}`}>
+    <PageWrapper
+      header={data.header}
+      footer={data.footer}
+      page={data.page}
+      location={`/portfolio/${data.page.bcms.meta.en.slug}`}
+    >
       <div className="pt-6 pb-10 overflow-hidden md:pb-20 lg:pt-8 lg:pb-[120px]">
         <div className="relative mb-4 lg:mb-6">
           <div className="py-6">
@@ -104,13 +115,20 @@ const PortfolioItemPage: React. FC<{
             className="text-sm leading-[1.2] tracking-[-0.41px] max-w-[1138px] mb-8 lg:text-[40px] lg:leading-[1.2] lg:mb-[72px]"
           />
           <div className="grid grid-cols-3 gap-3 mb-4 lg:gap-8 lg:mb-6">
-            {data.page.bcms.meta.en.gallery.slice(1).map((image: BCMSPropMediaDataParsed, index: React.Key | null | undefined) => (
-              <BCMSImage
-                key={index}
-                media={image}
-                className="portfolioItemPage--galleryImage w-full cover h-full"
-              />
-            ))}
+            {data.page.bcms.meta.en.gallery
+              .slice(1)
+              .map(
+                (
+                  image: BCMSPropMediaDataParsed,
+                  index: React.Key | null | undefined,
+                ) => (
+                  <BCMSImage
+                    key={index}
+                    media={image}
+                    className="portfolioItemPage--galleryImage w-full cover h-full"
+                  />
+                ),
+              )}
           </div>
         </div>
       </div>
@@ -129,8 +147,7 @@ export const query = graphql`
     page: bcmsPortfolioItem(bcms: { _id: { eq: $id } }) {
       ...PortfolioItem
     }
-  }  
+  }
 `;
-
 
 export default PortfolioItemPage;

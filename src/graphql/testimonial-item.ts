@@ -7,10 +7,10 @@ export const query = graphql`
         en {
           title
           slug
-         author {
-          name
-          avatar {
-             _id
+          author {
+            name
+            avatar {
+              _id
               alt_text
               caption
               height
@@ -18,8 +18,8 @@ export const query = graphql`
               src
               svg
               width
+            }
           }
-        }
           content {
             type
             name

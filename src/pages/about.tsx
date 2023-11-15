@@ -1,4 +1,8 @@
-import { AboutPageEntryMeta, FooterEntryMeta, HeaderEntryMeta } from '../../bcms/types';
+import {
+  AboutPageEntryMeta,
+  FooterEntryMeta,
+  HeaderEntryMeta,
+} from '../../bcms/types';
 import React from 'react';
 import { PageWrapper } from '../components/PageWrapper';
 import AnimatedTitle from '../components/AnimatedTitle';
@@ -32,10 +36,15 @@ const AboutPage: React.FC<{
         };
       };
     };
-  }
+  };
 }> = ({ data }) => {
   return (
-    <PageWrapper header={data.header} footer={data.footer} page={data.page} location="/about">
+    <PageWrapper
+      header={data.header}
+      footer={data.footer}
+      page={data.page}
+      location="/about"
+    >
       <div className="pt-8 pb-10 overflow-hidden md:pb-20 lg:pt-[72px] lg:pb-[120px]">
         <div className="container mb-10 lg:mb-[128px] xl:pr-[220px]">
           <AnimatedTitle
@@ -56,14 +65,16 @@ const AboutPage: React.FC<{
                 className="text-sm leading-[1.4] tracking-[-0.41px] text-appGray-400 mb-6 lg:text-base lg:leading-[1.4] lg:mb-8"
               />
               <div className="flex flex-wrap gap-3">
-                {data.page?.bcms.meta?.en.education?.degrees.map((degree, index) => (
-                  <div
-                    key={index}
-                    className="flex text-sm leading-none tracking-[-0.41px] text-appGray-500 font-medium px-4 py-3 border border-appGray-200 rounded-[32px] lg:text-base lg:leading-none"
-                  >
-                    {degree}
-                  </div>
-                ))}
+                {data.page?.bcms.meta?.en.education?.degrees.map(
+                  (degree, index) => (
+                    <div
+                      key={index}
+                      className="flex text-sm leading-none tracking-[-0.41px] text-appGray-500 font-medium px-4 py-3 border border-appGray-200 rounded-[32px] lg:text-base lg:leading-none"
+                    >
+                      {degree}
+                    </div>
+                  ),
+                )}
               </div>
             </div>
           </div>
@@ -80,16 +91,18 @@ const AboutPage: React.FC<{
                 className="text-sm leading-[1.4] tracking-[-0.41px] text-appGray-400 mb-6 lg:text-base lg:leading-[1.4] lg:mb-8"
               />
               <div className="flex flex-wrap gap-3">
-                {data.page.bcms.meta.en.work_history.items.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center text-sm leading-none tracking-[-0.41px] text-appGray-500 px-4 py-3 border border-appGray-200 rounded-[32px] lg:text-base lg:leading-none"
-                  >
-                    <span>{item.company_name}</span>
-                    <span className="w-[3px] h-[3px] rounded-full bg-appGray-500 mx-1.5 lg:mx-2" />
-                    <span>{new Date(item.from).getFullYear()}</span>
-                  </div>
-                ))}
+                {data.page.bcms.meta.en.work_history.items.map(
+                  (item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center text-sm leading-none tracking-[-0.41px] text-appGray-500 px-4 py-3 border border-appGray-200 rounded-[32px] lg:text-base lg:leading-none"
+                    >
+                      <span>{item.company_name}</span>
+                      <span className="w-[3px] h-[3px] rounded-full bg-appGray-500 mx-1.5 lg:mx-2" />
+                      <span>{new Date(item.from).getFullYear()}</span>
+                    </div>
+                  ),
+                )}
               </div>
             </div>
           </div>

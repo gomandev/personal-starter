@@ -1,4 +1,4 @@
-import { HeaderEntryMeta, HomePageEntryMeta } from '../../bcms/types';
+import { HeaderEntryMeta } from '../../bcms/types';
 import { FooterEntryMeta } from '../../bcms/types/entry/footer';
 
 export interface PageData<Page = { meta: { en: { title: string } } }> {

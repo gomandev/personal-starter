@@ -5,26 +5,26 @@ export const query = graphql`
     bcms {
       meta {
         en {
-            title
+          title
           slug
           project_no
           brand_name
-        	role
+          role
           year
-           description {
+          description {
             type
             name
             value
           }
           gallery {
-             _id
-              alt_text
-              caption
-              height
-              name
-              src
-              svg
-              width
+            _id
+            alt_text
+            caption
+            height
+            name
+            src
+            svg
+            width
           }
           theme
         }

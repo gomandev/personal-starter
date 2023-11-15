@@ -2,7 +2,11 @@ import { PageWrapper } from '../components/PageWrapper';
 import AnimatedTitle from '../components/AnimatedTitle';
 import FormText from '../components/form/Text';
 import React, { useRef, useState } from 'react';
-import { ContactPageEntryMeta, FooterEntryMeta, HeaderEntryMeta } from '../../bcms/types';
+import {
+  ContactPageEntryMeta,
+  FooterEntryMeta,
+  HeaderEntryMeta,
+} from '../../bcms/types';
 import { BCMSPropRichTextDataParsed } from '@becomes/cms-client/types';
 import { graphql } from 'gatsby';
 
@@ -38,7 +42,7 @@ const ContactPage: React.FC<{
         };
       };
     };
-  }
+  };
 }> = ({ data }) => {
   const [form, setForm] = useState<ContactForm>({
     phone: '',
@@ -91,7 +95,12 @@ const ContactPage: React.FC<{
     }
   };
   return (
-    <PageWrapper header={data.header} footer={data.footer} page={data.page} location="/contact">
+    <PageWrapper
+      header={data.header}
+      footer={data.footer}
+      page={data.page}
+      location="/contact"
+    >
       <div className="pt-8 pb-10 overflow-hidden md:pb-20 lg:pt-[72px] lg:pb-[120px]">
         <div className="container">
           <AnimatedTitle

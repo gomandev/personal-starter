@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { HomeTestimonials } from '../../types';
 import ContentManager from '../../components/ContentManager';
 import { BCMSImage } from 'gatsby-source-bcms/components';

@@ -47,7 +47,10 @@ const FormText: React.FC<FormTextProps> = ({
       )}
       <div className="flex items-center">
         {!isReadOnly && (
-          <img src={ArrowIcon} className="w-[14px] h-[14px] mr-2 lg:w-4 lg:h-4 lg:mr-2.5" />
+          <img
+            src={ArrowIcon}
+            className="w-[14px] h-[14px] mr-2 lg:w-4 lg:h-4 lg:mr-2.5"
+          />
         )}
         <input
           value={value}

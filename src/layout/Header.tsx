@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import { BCMSImage } from 'gatsby-source-bcms/components';
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 import { HeaderEntryMeta } from '../../bcms/types';
 import ContentManager from '../components/ContentManager';
 import PinIcon from '../assets/icons/pin.svg';
@@ -71,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
               </li>
             ))}
           </ul>
-          <div className="flex items-center justify-end leading-none font-medium tracking-[-0.41px] max-lg:hidden">
+          <div className="flex items-center justify-end leading-none font-medium flex-1 tracking-[-0.41px] max-lg:hidden">
             <img src={PinIcon} className="w-4 h-4 mr-1" />
             <span>Sydney</span>
             <div className="w-4 h-4 bg-appAccent rounded-full mx-2" />

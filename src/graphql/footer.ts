@@ -6,17 +6,17 @@ export const query = graphql`
       meta {
         en {
           title
-        slug
-        nav {
-          type
-          name
-          value
-        }
-        social {
-          label
-          url
-          icon {
-             _id
+          slug
+          nav {
+            type
+            name
+            value
+          }
+          social {
+            label
+            url
+            icon {
+              _id
               alt_text
               caption
               height
@@ -24,8 +24,8 @@ export const query = graphql`
               src
               svg
               width
+            }
           }
-        }
         }
       }
     }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import ContentManager from '../components/ContentManager';
 
@@ -6,7 +6,7 @@ import { BCMSImage } from 'gatsby-source-bcms/components';
 import { FooterEntryMeta } from '../../bcms/types';
 import BCMSLogo from '../assets/media/bcms-logo.svg';
 interface FooterProps {
-  data: FooterEntryMeta; 
+  data: FooterEntryMeta;
 }
 
 const Footer: React.FC<FooterProps> = ({ data }) => {
@@ -63,16 +63,15 @@ const Footer: React.FC<FooterProps> = ({ data }) => {
             </ul>
           </div>
           <div className="flex items-center max-md:mb-4 lg:order-1">
-          <a
-            href="https://thebcms.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="text-sm leading-none tracking-[-0.41px] text-appGray-500 mr-2 lg:text-base lg:leading-none lg:mr-3">
-              Powered by
-            </span>
-            
-          </a>
+            <a
+              href="https://thebcms.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="text-sm leading-none tracking-[-0.41px] text-appGray-500 mr-2 lg:text-base lg:leading-none lg:mr-3">
+                Powered by
+              </span>
+            </a>
             <img src={BCMSLogo} className="w-[55px] lg:w-[83px]" />
           </div>
           <div className="text-sm leading-none tracking-[-0.41px] sm:text-right lg:order-3 lg:text-base lg:leading-none">

@@ -61,16 +61,21 @@ const HomepageAbout: React.FC<HomepageAboutProps> = ({ data }) => {
                 {data.work_history.title}
               </div>
               <div className="flex flex-wrap gap-3">
-                {visibleWorkHistoryItems.map((item: { company_name: string; from: number }, index: React.Key | null | undefined) => (
-                  <div
-                    key={index}
-                    className="flex items-center text-sm leading-none tracking-[-0.41px] text-appGray-500 px-4 py-3 border border-appGray-200 rounded-[32px] lg:text-base lg:leading-none"
-                  >
-                    <span>{item.company_name}</span>
-                    <span className="w-[3px] h-[3px] rounded-full bg-appGray-500 mx-1.5 lg:mx-2" />
-                    <span>{new Date(item.from).getFullYear()}</span>
-                  </div>
-                ))}
+                {visibleWorkHistoryItems.map(
+                  (
+                    item: { company_name: string; from: number },
+                    index: React.Key | null | undefined,
+                  ) => (
+                    <div
+                      key={index}
+                      className="flex items-center text-sm leading-none tracking-[-0.41px] text-appGray-500 px-4 py-3 border border-appGray-200 rounded-[32px] lg:text-base lg:leading-none"
+                    >
+                      <span>{item.company_name}</span>
+                      <span className="w-[3px] h-[3px] rounded-full bg-appGray-500 mx-1.5 lg:mx-2" />
+                      <span>{new Date(item.from).getFullYear()}</span>
+                    </div>
+                  ),
+                )}
                 {visibleWorkHistoryItems.length <
                   data.work_history.items.length && (
                   <button

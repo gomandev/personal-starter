@@ -1,21 +1,23 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { PageWrapper } from '../components/PageWrapper';
-import { HomeAbout, HomePortfolio, HomeServices, HomeTestimonials } from '../types';
+import {
+  HomeAbout,
+  HomePortfolio,
+  HomeServices,
+  HomeTestimonials,
+} from '../types';
 import { BCMSPropRichTextDataParsed } from '@becomes/cms-client/types';
 import {
   HomePageEntryMeta,
   PortfolioItemEntry,
   PortfolioItemEntryMeta,
-  PortfolioPageEntry,
   ServiceItemEntry,
   ServiceItemEntryMeta,
-  ServicesPageEntry,
   TestimonialItemEntry,
   TestimonialItemEntryMeta,
-  TestimonialsPageEntry,
-  HeaderEntryMeta, 
-  FooterEntryMeta
+  HeaderEntryMeta,
+  FooterEntryMeta,
 } from '../../bcms/types';
 
 import HomePageHero from '../components/home-page/Hero';
@@ -63,7 +65,7 @@ const Home: React.FC<{
       nodes: Array<{
         bcms: ServiceItemEntry;
       }>;
-    }
+    };
     about: {
       bcms: {
         meta: {
@@ -88,7 +90,7 @@ const Home: React.FC<{
       nodes: Array<{
         bcms: PortfolioItemEntry;
       }>;
-    }
+    };
     testimonials: {
       bcms: {
         meta: {
@@ -103,35 +105,42 @@ const Home: React.FC<{
       nodes: Array<{
         bcms: TestimonialItemEntry;
       }>;
-    }
-  }
+    };
+  };
 }> = ({ data }) => {
-
   const homeService = {
     title: data.services.bcms.meta.en?.title as string,
-    description: data.services.bcms.meta.en?.description as BCMSPropRichTextDataParsed,
+    description: data.services.bcms.meta.en
+      ?.description as BCMSPropRichTextDataParsed,
     items: data.serviceItem?.nodes.map(
       (item) => item.bcms.meta.en as ServiceItemEntryMeta,
     ),
-  }
+  };
 
   const homePortfolio = {
     title: data.portfolio.bcms.meta.en?.title as string,
-    description: data.portfolio.bcms.meta.en?.description as BCMSPropRichTextDataParsed,
+    description: data.portfolio.bcms.meta.en
+      ?.description as BCMSPropRichTextDataParsed,
     items: data.portfolioItem?.nodes.map(
       (item) => item.bcms.meta.en as PortfolioItemEntryMeta,
     ),
-  }
+  };
 
   const homeTestimonials = {
     title: data.testimonials.bcms.meta.en?.title as string,
-    description: data.testimonials.bcms.meta.en?.description as BCMSPropRichTextDataParsed,
+    description: data.testimonials.bcms.meta.en
+      ?.description as BCMSPropRichTextDataParsed,
     items: data.testimonialItem?.nodes.map(
       (item) => item.bcms.meta.en as TestimonialItemEntryMeta,
     ),
-  }
+  };
   return (
-    <PageWrapper header={data.header} footer={data.footer} page={data.page} location="/">
+    <PageWrapper
+      header={data.header}
+      footer={data.footer}
+      page={data.page}
+      location="/"
+    >
       <HomePageHero data={data.page.bcms.meta.en.hero} />
       <HomePageServices data={homeService} />
       <HomePageAbout data={data.about.bcms.meta.en} />

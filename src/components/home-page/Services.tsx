@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ContentManager from '../../components/ContentManager';
 import { HomeServices } from '../../types';
 

@@ -6,13 +6,13 @@ export const query = graphql`
       meta {
         en {
           title
-        description {
-          type
-          name
-          value
-        }
-        cover {
-           _id
+          description {
+            type
+            name
+            value
+          }
+          cover {
+            _id
             alt_text
             caption
             height
@@ -20,43 +20,41 @@ export const query = graphql`
             src
             svg
             width
-        }
-        awards {
-          title {
-            type
-            name
-            value
           }
-          items {
-            place
+          awards {
+            title {
+              type
+              name
+              value
+            }
+            items {
+              place
+              title
+              year
+            }
+          }
+          work_history {
             title
-            year
+            description {
+              type
+              name
+              value
+            }
+            items {
+              company_name
+              from
+              to
+            }
           }
-        }
-        work_history {
-          title
-          description {
-            type
-            name
-            value
+          education {
+            title
+            description {
+              type
+              name
+              value
+            }
+            degrees
           }
-          items {
-            company_name
-            from
-            to
-          }
-          
-        }
-        education {
-          title
-          description {
-            type
-            name
-            value
-          }
-          degrees
-          
-        }
         }
       }
     }

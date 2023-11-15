@@ -1,18 +1,16 @@
-import { graphql } from 'gatsby';
-import { AboutPageEntry, PortfolioItemEntry } from './bcms/types';
+import { PortfolioItemEntry } from './bcms/types';
 import { getBcmsMost } from 'gatsby-source-bcms';
+import path from 'path';
 
-const path = require('path');
-
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions }: any) => {
   const { createTypes } = actions;
 
   const typeDefs = `
     scalar number
     scalar Number 
-  `
-  createTypes(typeDefs)
-}
+  `;
+  createTypes(typeDefs);
+};
 
 exports.createPages = async ({ actions }: any) => {
   const { createPage } = actions;
@@ -38,6 +36,3 @@ exports.createPages = async ({ actions }: any) => {
   }
   // END OF SINGLE portfolio PAGES
 };
-
-
-

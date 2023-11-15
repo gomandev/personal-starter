@@ -1,5 +1,10 @@
-import React from 'react'
-import { FooterEntryMeta, HeaderEntryMeta, LegalPageEntry, LegalPageEntryMeta } from '../../bcms/types';
+import React from 'react';
+import {
+  FooterEntryMeta,
+  HeaderEntryMeta,
+  LegalPageEntry,
+  LegalPageEntryMeta,
+} from '../../bcms/types';
 import { PageWrapper } from '../components/PageWrapper';
 import AnimatedTitle from '../components/AnimatedTitle';
 import ContentManager from '../components/ContentManager';
@@ -36,11 +41,16 @@ const LegalPage: React.FC<{
       nodes: Array<{
         bcms: LegalPageEntry;
       }>;
-    }
-  }
-}> = ({ data }) => { 
+    };
+  };
+}> = ({ data }) => {
   return (
-    <PageWrapper header={data.header} footer={data.footer} page={data.page} location="/legal">
+    <PageWrapper
+      header={data.header}
+      footer={data.footer}
+      page={data.page}
+      location="/legal"
+    >
       <div className="pt-8 pb-10 overflow-hidden md:pb-20 lg:pt-[72px] lg:pb-[120px]">
         <div className="container">
           <AnimatedTitle

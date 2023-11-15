@@ -1,4 +1,7 @@
-import { ServiceItemEntryMeta, ServicesPageEntryMeta } from '../../../bcms/types';
+import {
+  ServiceItemEntryMeta,
+  ServicesPageEntryMeta,
+} from '../../../bcms/types';
 
 export interface ServicesPageData {
   meta: ServicesPageEntryMeta;

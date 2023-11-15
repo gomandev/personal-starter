@@ -2,8 +2,6 @@ import {
   FooterEntryMeta,
   HeaderEntryMeta,
   ServiceItemEntry,
-  ServiceItemEntryMeta,
-  ServicesPageEntry,
   ServicesPageEntryMeta,
 } from '../../bcms/types';
 import React from 'react';
@@ -11,8 +9,7 @@ import { PageWrapper } from '../components/PageWrapper';
 import AnimatedTitle from '../components/AnimatedTitle';
 import ContentManager from '../components/ContentManager';
 import { BCMSPropRichTextDataParsed } from '@becomes/cms-client/types';
-import { PageProps, graphql } from 'gatsby';
-import { getHeaderAndFooter } from 'utils/page-data';
+import { graphql } from 'gatsby';
 
 const ServicesPage: React.FC<{
   data: {
@@ -44,12 +41,16 @@ const ServicesPage: React.FC<{
       nodes: Array<{
         bcms: ServiceItemEntry;
       }>;
-    }
-   
-  }
+    };
+  };
 }> = ({ data }) => {
   return (
-    <PageWrapper header={data.header} footer={data.footer} page={data.page} location="/services">
+    <PageWrapper
+      header={data.header}
+      footer={data.footer}
+      page={data.page}
+      location="/services"
+    >
       <div className="pt-8 pb-10 overflow-hidden md:pb-20 lg:pt-[72px] lg:pb-[120px]">
         <div className="container">
           <AnimatedTitle
@@ -72,7 +73,10 @@ const ServicesPage: React.FC<{
                   </div>
                   <div className="max-lg:mb-6 lg:max-w-[378px]">
                     <ContentManager
-                      item={service.bcms.meta.en?.description as BCMSPropRichTextDataParsed}
+                      item={
+                        service.bcms.meta.en
+                          ?.description as BCMSPropRichTextDataParsed
+                      }
                       className="text-sm leading-[1.4] tracking-[-0.41px] text-appGray-400 mb-[14px] lg:text-base lg:leading-[1.4] lg:mb-6"
                     />
                     <div className="leading-none tracking-[-0.41px] font-Helvetica lg:text-xl lg:leading-none">
@@ -94,7 +98,6 @@ const ServicesPage: React.FC<{
     </PageWrapper>
   );
 };
-
 
 export const query = graphql`
   query {

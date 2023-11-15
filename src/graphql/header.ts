@@ -21,7 +21,6 @@ export const query = graphql`
             src
             svg
             width
-            
           }
         }
       }

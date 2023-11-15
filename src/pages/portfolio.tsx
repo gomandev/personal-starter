@@ -1,55 +1,60 @@
 import React from 'react';
-import { PortfolioPageData } from '../types';
 import { PageWrapper } from '../components/PageWrapper';
 import AnimatedTitle from '../components/AnimatedTitle';
 import { BCMSImage } from 'gatsby-source-bcms/components';
-import { Link, PageProps, graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import ContentManager from '../components/ContentManager';
 import {
-    FooterEntryMeta,
-    HeaderEntryMeta,
+  FooterEntryMeta,
+  HeaderEntryMeta,
   PortfolioItemEntry,
   PortfolioPageEntryMeta,
 } from '../../bcms/types';
-import { BCMSPropMediaDataParsed, BCMSPropRichTextDataParsed } from '@becomes/cms-client/types';
-import { getHeaderAndFooter } from 'utils/page-data';
+import {
+  BCMSPropMediaDataParsed,
+  BCMSPropRichTextDataParsed,
+} from '@becomes/cms-client/types';
 
 const PortfolioPage: React.FC<{
-    data: {
-      header: {
-        bcms: {
-          meta: {
-            en: HeaderEntryMeta;
-          };
+  data: {
+    header: {
+      bcms: {
+        meta: {
+          en: HeaderEntryMeta;
         };
       };
-      footer: {
-        bcms: {
-          meta: {
-            en: FooterEntryMeta;
-          };
+    };
+    footer: {
+      bcms: {
+        meta: {
+          en: FooterEntryMeta;
         };
       };
-      page: {
-        bcms: {
-          meta: {
-            en: PortfolioPageEntryMeta;
-          };
-          content: {
-            en: BCMSPropRichTextDataParsed;
-          };
+    };
+    page: {
+      bcms: {
+        meta: {
+          en: PortfolioPageEntryMeta;
+        };
+        content: {
+          en: BCMSPropRichTextDataParsed;
         };
       };
-      portfolioItem: {
-        nodes: Array<{
-          bcms: PortfolioItemEntry;
-        }>;
-      }
-     
-    }
-  }> = ({ data }) => {
+    };
+    portfolioItem: {
+      nodes: Array<{
+        bcms: PortfolioItemEntry;
+      }>;
+    };
+  };
+}> = ({ data }) => {
   return (
-    <PageWrapper header={data.header} footer={data.footer} page={data.page} location="/portfolio">
+    <PageWrapper
+      header={data.header}
+      footer={data.footer}
+      page={data.page}
+      location="/portfolio"
+    >
       <div className="pt-8 pb-10 overflow-hidden md:pb-20 lg:pt-[72px] lg:pb-[120px]">
         <div className="container">
           <AnimatedTitle
@@ -66,7 +71,9 @@ const PortfolioPage: React.FC<{
               >
                 <a>
                   <BCMSImage
-                    media={item.bcms.meta.en?.gallery[0] as BCMSPropMediaDataParsed}
+                    media={
+                      item.bcms.meta.en?.gallery[0] as BCMSPropMediaDataParsed
+                    }
                     options={{
                       sizes: {
                         exec: [
@@ -87,7 +94,10 @@ const PortfolioPage: React.FC<{
                       </span>
                     </h3>
                     <ContentManager
-                      item={item.bcms.meta.en?.description as BCMSPropRichTextDataParsed}
+                      item={
+                        item.bcms.meta.en
+                          ?.description as BCMSPropRichTextDataParsed
+                      }
                       className="text-sm leading-[1.4] tracking-[-0.41px] text-appGray-400 lg:text-[15px] lg:max-w-[551px]"
                     />
                   </div>
@@ -110,12 +120,12 @@ export const query = graphql`
       ...Footer
     }
     page: bcmsPortfolioPage {
-        ...Portfolio
+      ...Portfolio
     }
     portfolioItem: allBcmsPortfolioItem {
-        nodes {
-          ...PortfolioItem
-        }
+      nodes {
+        ...PortfolioItem
+      }
     }
   }
 `;
